@@ -13,7 +13,7 @@ import androidx.lifecycle.get
  * Custom implementation of [FragmentFactory] that stores a given [ViewModelProvider.Factory]
  * class inside an helper ViewModel inside Fragment's ViewModelStore, enabling further access to it.
  *
- * @see HiltBaseActivity
+ * @see HiltFragmentBaseActivity
  *
  * Created by Damiano Giusti on 10/12/2020.
  */

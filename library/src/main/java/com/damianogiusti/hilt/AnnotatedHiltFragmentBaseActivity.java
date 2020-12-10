@@ -11,5 +11,5 @@ import dagger.hilt.android.AndroidEntryPoint;
  * Created by Damiano Giusti on 09/12/2020.
  */
 @AndroidEntryPoint
-public class AnnotatedHiltBaseActivity extends AppCompatActivity {
+public class AnnotatedHiltFragmentBaseActivity extends AppCompatActivity {
 }

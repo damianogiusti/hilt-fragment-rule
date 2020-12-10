@@ -27,7 +27,7 @@ import dagger.hilt.internal.GeneratedComponent;
  * <p>
  * Created by Damiano Giusti on 09/12/2020.
  */
-public class HiltBaseActivity extends Hilt_AnnotatedHiltBaseActivity implements
+public class HiltFragmentBaseActivity extends Hilt_AnnotatedHiltFragmentBaseActivity implements
     GeneratedComponent,
     FragmentComponentManager.FragmentComponentBuilderEntryPoint {
 
