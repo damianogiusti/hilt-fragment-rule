@@ -80,7 +80,7 @@ androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 debugImplementation "androidx.fragment:fragment-testing:1.3.0-beta02"
 ```
 
-Eventually, `hilt-fragment-rule` add as dependency in your module's `build.gradle`:
+Eventually, add `hilt-fragment-rule` as dependency in your module's `build.gradle`:
 
 ```groovy
 def version = "1.0.0"
@@ -90,7 +90,7 @@ debugImplementation "com.github.damianogiusti:hilt-fragment-rule:$version"
 
 ## Setup
 
-Unlike the installation phases, for setting up the test environment is pretty easy.
+Unlike the installation phases, setting up the test environment is pretty easy.
 
 1) Setup your test runner:
 
@@ -162,7 +162,7 @@ private class TestHomeViewModel : HomeViewModel() {
 ```
 
 - `launchFragmentInContainer` is an utility function that I suggest you to add to you project. 
-You can find it [here](app/src/main/java/com/damianogiusti/hilt/sample/utils/ViewModelProviderUtils.kt);
+You can find it [here](app/src/androidTest/java/com/damianogiusti/hilt/sample/HiltExt.kt);
 
 - `onViewModel` provides an instance of the ViewModel associated with the Fragment under test;
 
