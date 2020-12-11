@@ -124,6 +124,33 @@ public class FragmentScenario$EmptyFragmentActivity extends HiltFragmentBaseActi
 }
 ```
 
+4) Create a class inside your `androidTest` that subclasses the Hilt's generated `*.FragmentC` class.
+Have a look at [sample project's implementation](app/src/androidTest/java/com/damianogiusti/hilt/sample/TestFragmentComponent.kt): 
+```kotlin
+class TestFragmentComponent(fragment: Fragment) :
+    DefaultViewModelFactories.FragmentEntryPoint by HiltFragmentEntryPoint(fragment),
+    MainApp_HiltComponents.FragmentC() {
+
+    override fun injectHomeFragment(homeFragment: HomeFragment?) {
+    }
+
+    override fun viewWithFragmentComponentBuilder(): ViewWithFragmentComponentBuilder {
+        throw UnsupportedOperationException()
+    }
+}
+```
+
+`TestFragmentComponent` is the component that allows to override the ViewModel factory. 
+In particular, override is performed by delegating the implementation of `DefaultViewModelFactories.FragmentEntryPoint`
+to `HiltFragmentEntryPoint`. You can still write it manually if you want.
+
+> Be aware that each time you will add a Fragment annotated with `@AndroidEntryPoint`, this class
+> will break because Hilt will generate another injector method. You will need to implement
+> the injector method as displayed above. Let's say you add a fragment named UserFragment annotated 
+> with `@AndroidEntryPoint`. In that case, you must implement 
+> the`injectUserFragment(userFragment: UserFragment?)` method. 
+> Without any doubt, this is a drawback, but (I believe) I can live with it.
+
 ## Usage
 
 A typical UI test will be like:
@@ -160,6 +187,8 @@ private class TestHomeViewModel : HomeViewModel() {
     }
 }
 ```
+
+- `HiltFragmentRule` is the JUnit rule that 
 
 - `launchFragmentInContainer` is an utility function that I suggest you to add to you project. 
 You can find it [here](app/src/androidTest/java/com/damianogiusti/hilt/sample/HiltExt.kt);
