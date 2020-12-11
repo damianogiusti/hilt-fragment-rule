@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/damianogiusti/hilt-fragment-rule.svg)](https://jitpack.io/#damianogiusti/hilt-fragment-rule)
+
 # Hilt Fragment Rule
 
 A JUnit rule for testing Android Fragments in projects based on Dagger's Hilt.
